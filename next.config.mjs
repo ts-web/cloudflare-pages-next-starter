@@ -1,3 +1,5 @@
+// @ts-check
+
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 
 // Here we use the @cloudflare/next-on-pages next-dev module to allow us to use bindings during local development
@@ -7,9 +9,8 @@ if (process.env.NODE_ENV === 'development') {
   await setupDevPlatform();
 }
 
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   /* config options here */
 };
 
