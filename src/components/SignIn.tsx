@@ -2,13 +2,19 @@
 
 
 export function SignIn ({
-  onClick,
+  redirectUrl,
 }: {
-  onClick: () => void;
+  redirectUrl: string;
 }) {
   return (
     <form
-      action={onClick}
+      action={async () => {
+        'use server';
+        await new Promise((resolve) => {
+          setTimeout(resolve, 2000);
+        });
+        console.log('sign in', redirectUrl);
+      }}
     >
       <button type='submit'>
         Sign in
