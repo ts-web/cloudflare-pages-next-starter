@@ -1,3 +1,6 @@
+'use client';
+
+import { signIn } from '@/actions/signIn';
 
 
 
@@ -8,13 +11,7 @@ export function SignIn ({
 }) {
   return (
     <form
-      action={async () => {
-        'use server';
-        await new Promise((resolve) => {
-          setTimeout(resolve, 2000);
-        });
-        console.log('sign in', redirectUrl);
-      }}
+      action={async () => signIn(redirectUrl)}
     >
       <button type='submit'>
         Sign in
